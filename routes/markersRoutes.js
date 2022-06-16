@@ -5,6 +5,7 @@ const router = Router();
 
 router
   .get("/markers", MarkerController.ListAllMarkers)
+  .get("/markers/:markerId", MarkerController.ListOneMarker)
   .post("/markers", MarkerController.CreateMarker)
   .put("/markers/:markerId", MarkerController.UpdateMarker)
   .delete("/markers/:markerId", MarkerController.DeleteOneMarker);

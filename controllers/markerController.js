@@ -10,6 +10,18 @@ class MarkerController {
     }
   }
 
+  static async ListOneMarker(req, res) {
+    const { markerId } = req.params;
+    try {
+      const oneMarker = await database.Markers.findOne({
+        where: { id: Number(markerId) },
+      });
+      return oneMarker;
+    } catch (erro) {
+      return res.status(500).json({ erro: erro.message });
+    }
+  }
+
   static async CreateMarker(req, res) {
     const newMarker = req.body;
     try {
